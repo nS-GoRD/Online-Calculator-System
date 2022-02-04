@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Online Calculator System</title>
+    <!-- to reference the CSS3 code for its styling and presentation -->
+    <link rel="stylesheet" href="style.css">
+    <!-- to reference the JavaScript code for its behaviour -->
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- holder space for the calulator -->
+    <div class="container">
+
+      <!-- the start of the calculator -->
+        <div class="calculator">
+
+        <!-- label to tell between degree and radiance -->
+          <p align="right" id="info"><b>RAD</b></p>
+
+          <!-- First, Display Screen for calculator -->
+          <form name="form">
+            <input type="text" id="OutputScreen" name="OutputScreen" class="OutputScreen" />
+          </form>
+
+          <!-- Next the GRID_LAYOUT for Buttons -->
+          <table>
+
+            <!-- The First Row of buttons-->
+            <tr>
+              <td><button onclick="clean()">C</button></td>
+              <td><button onclick="back()">DEL</button></td> 
+              <td><button class="ArithOPsBtn" onclick="insert('(')">(</button></td>
+              <td><button class="ArithOPsBtn" onclick="insert(')')">)</button></td>
+              <td><button class="TrigBtn" onclick="calc_sin()">sin</button></td>
+              <td><button id="deg" onclick="calc_deg()">deg</button></td>
+              <td><button id="rad" onclick="calc_rad()">rad</button></td>
+            </tr>
+            <!-- The Second Row of buttons -->
+            <tr>            
+            <td><button class="numpad" onclick="insert(7)">7</button></td>
+            <td><button class="numpad" onclick="insert(8)">8</button></td>
+            <td><button class="numpad" onclick="insert(9)">9</button></td>
+            <td><button class="ArithOPsBtn" onclick="insert('*')">&#xd7</button></td>
+            <td><button class="TrigBtn" onclick="calc_cos()">cos</button></td>
+            <td><button class="funcBtn" onclick="insert('**')">^</button></td>
+            <td><button class="funcBtn" onclick="insert(3.14159265359)">&#960</td>
+            </tr>
+            <!-- The Third Row of buttons-->
+            <tr>
+              <td><button class="numpad" onclick="insert(4)">4</button></td>
+              <td><button class="numpad" onclick="insert(5)">5</button></td>
+              <td><button class="numpad" onclick="insert(6)">6</button></td>
+              <td><button class="ArithOPsBtn" onclick="insert('/')">&#247</button></td>
+              <td><button class="TrigBtn" onclick="calc_tan()">tan</button></td>
+              <td><button class="funcBtn" onclick="calc_exp()">exp</button></td>
+              <td><button class="funcBtn" onclick="changeSign()">&#177</button></td>
+            </tr>
+            <!-- The Fourth Row of buttons -->
+            <tr>
+              <td><button class="numpad" onclick="insert(1)">1</button></td>
+              <td><button class="numpad" onclick="insert(2)">2</button></td>
+              <td><button class="numpad" onclick="insert(3)">3</button></td>
+              <td><button class="ArithOPsBtn" onclick="insert('+')">&#x2b</button></td>
+              <td><button class="ArithOPsBtn" onclick="insert('-')">&#x2212</button></td>
+              <td><button class="funcBtn" onclick="calc_log()">ln</button></td>
+              <td><button class="funcBtn" onclick="calc_percent()">&#x25</button></td>
+            </tr>
+            <!-- The Fifth Row of buttons-->
+            <tr>
+              <td><button class="numpad" onclick="insert(0)">0</button></td>
+              <td><button id="decimalBtn" onclick="insert('.')">.</button></td>
+              <td><button id="equalsBtn" onclick="calculate()">=</button></td>
+              <td><button class="ArithOPsBtn" onclick="calc_sqrt()">&#x221A</button></td>
+
+              <!-- drop_down list button for base_to_base conversion -->
+
+              <td> <select id ="baseConverter" "">
+                        <option value = "bases_List_conversions">Bases Conversions</option>
+                        <option onclick="conv_toBinary()" value = "To_base_2">base_10 to base_2</option>
+                        <option onclick="conv_toBinary_2()" value = "To_base_2">base_8 to base_2</option>
+                        <option onclick="conv_toDecimal()" value = "To_base_10">base_2 to base_10</option>
+                        <option onclick="conv_toDecimal_2()" value = "To_base_10">base_8 to base_10</option>
+                        <option onclick="conv_toOctal()" value = "To_base_8">base_2 to base_8</option>
+                        <option onclick="conv_toOctal_2()" value = "To_base_8">base_10 to base_8</option>
+                    </select></td>
+              <td>
+
+                  <!-- drop_down list button to select polynomial form -->
+
+                  <select id ="selectPolyn_form">
+                    <option value = "polynomial select forms">select the form of the polynomial</option>
+                    <option onclick="rootsofpolynomial()" value = "biquadraticroot">aX&#178 + bX + c = 0</option>
+                    <option onclick="rootsofpolynomial_2()" value = "biquadraticroot_2">aX&#178  + c = 0</option>
+                </select></td>
+
+                <!-- drop_down list button to display all Group 4 members -->
+
+                <td>  <select id ="G4M" "Group_4_Members">
+                          <option>&copy</option>
+                          <option value = "Author, member">Nnah, Samuel Gordon</option>
+                          <option value = "Groupleader">Sampson, Owoidoho sunday </option>
+                          <option value = "Member">Okoro Divine Chukwuebuka</option>
+                          <option value = "Member">Egbe, John Bassey</option>
+                          <option value = "Member">Itam, prince joseph</option>
+                          <option value = "Member">Enyekit-jacob O Caleb</option>
+                          <option value = "Member">Nnate, Peace Ezinne</option>
+                          <option value = "Member">Oko, Wisdom Akpere</option>
+                          <option value = "Member">Ayargwer Tersoo David</option>
+                          <option value = "Member">Asanuwa Ogaga Benjamin</option>
+                          <option value = "Member">Okoye Ifeanyi Emmanuel</option>
+                          <option value = "Member">Jacob Samuel T</option>
+                          <option value = "Group 4 supervisor">Dennis Ashishie</option>
+                      </select>
+                </td>
+            </tr>
+          </table>
+      
+
+           
+        </div>
+     </div>
+    
+
+</body>
+</html>
